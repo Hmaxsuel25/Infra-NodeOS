@@ -13,12 +13,31 @@
 
 
 #Arquivo de Variaveis
-variable "region" {
-  description = "Sao Paulo"
-  default = "sa-east1"
-}
 
-variable "instance_type" {
-  description = "EC2 instance type"
-  default = "t2.micro"
+variable "token" {
+  type        = string
+  description = "Informe o Linode API Access Token"
+}
+variable "instances_name" {
+  type        = list(string)
+  default     = ["server-1"]
+  description = "Nome da(s) instância(s)"
+}
+variable "region" {
+  type    = string
+  default = "us-southeast"
+}
+variable "root_pass" {
+  type        = string
+  description = "Informe a senha do usuário root"
+}
+variable "authorized_keys" {
+  type        = list(string)
+  default     = []
+  description = "Zero ou mais chaves RSA para autenticação SSH"
+}
+variable "identification_tags" {
+  type        = list(string)
+  default     = []
+  description = "Zero ou mais tags utilizadas para identificação do elemento"
 }
